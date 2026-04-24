@@ -1,0 +1,24 @@
+# TrafficToll 配置文件
+# 用法: sudo tt wlp2s0 limit.yaml
+
+# 全局带宽上限（根据实际网络调整）
+download: 100mbps
+upload: 50mbps
+
+processes:
+  "浏览器":
+    # 下载限制
+    download: 100kbps
+    # 上传限制
+    upload: 100kbps
+
+    # 优先级 (0最高，数字越大越低)
+    download-priority: 2
+    upload-priority: 2
+
+    # 递归匹配子进程（Chromium/Electron 应用需要）
+    recursive: True
+
+    # 匹配可执行文件路径
+    match:
+      - exe: /usr/share/browser/browser
