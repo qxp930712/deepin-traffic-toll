@@ -28,7 +28,6 @@ struct Options {
     std::string config;
     double delay = 1.0;
     std::string log_level = "INFO";
-    bool speed_test = false;
 };
 
 class CliParser {

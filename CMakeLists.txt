@@ -17,7 +17,6 @@ set(SOURCES
     src/config.cpp
     src/process.cpp
     src/tc.cpp
-    src/speedtest.cpp
     src/logger.cpp
     src/utils.cpp
 )

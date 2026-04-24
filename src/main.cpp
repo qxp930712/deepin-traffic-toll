@@ -30,7 +30,6 @@
 #include "config.h"
 #include "process.h"
 #include "tc.h"
-#include "speedtest.h"
 #include "logger.h"
 #include "utils.h"
 
@@ -85,20 +84,6 @@ int main(int argc, char* argv[]) {
     // 全局速率
     uint64_t global_download_rate = MAX_RATE;
     uint64_t global_upload_rate = MAX_RATE;
-
-    // 自动测速
-    if (opts.speed_test) {
-        LOG_INFO("Running speed test...");
-        auto result = SpeedTest::run();
-        if (result) {
-            LOG_INFO("Determined download speed: %lu bps, upload speed: %lu bps",
-                     result->download_rate, result->upload_rate);
-            global_download_rate = result->download_rate;
-            global_upload_rate = result->upload_rate;
-        } else {
-            LOG_ERROR("Failed to automatically determine speed, falling back to configuration values");
-        }
-    }
 
     // 使用配置文件中的速率
     if (config.download) {

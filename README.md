@@ -13,7 +13,6 @@ Deepin Traffic Toll is a C++ implementation that leverages Linux Traffic Control
 - **Flexible process matching** - Match processes by name, executable path, or command line arguments using regular expressions
 - **Recursive process matching** - Automatically shape traffic for child processes (useful for Electron/Chromium apps)
 - **Minimum bandwidth guarantees** - Ensure processes don't get starved by higher priority traffic
-- **Automatic speed detection** - Optionally auto-detect network speed for optimal configuration
 - **Hot configuration updates** - Dynamically adds/removes filters as processes start/stop
 
 ## Requirements
@@ -58,7 +57,6 @@ sudo deepin-traffic-toll <device> <config_file> [options]
 |--------|-------------|
 | `-d, --delay <seconds>` | Interval between process checks (default: 1.0) |
 | `-l, --logging-level <level>` | Log level: TRACE, DEBUG, INFO, SUCCESS, WARNING, ERROR, CRITICAL (default: INFO) |
-| `-s, --speed-test` | Automatically detect upload/download speed |
 | `-h, --help` | Show help message |
 
 ### Example

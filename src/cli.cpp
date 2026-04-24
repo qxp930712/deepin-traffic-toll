@@ -57,8 +57,6 @@ bool CliParser::parse(int argc, char* argv[]) {
                 return false;
             }
             options_.log_level = argv[++i];
-        } else if (strcmp(argv[i], "--speed-test") == 0 || strcmp(argv[i], "-s") == 0) {
-            options_.speed_test = true;
         } else if (strcmp(argv[i], "--help") == 0 || strcmp(argv[i], "-h") == 0) {
             print_help(argv[0]);
             return false;
@@ -80,6 +78,5 @@ void CliParser::print_help(const char* program_name) {
     printf("  -d, --delay <seconds>      Delay between checks (default: 1.0)\n");
     printf("  -l, --logging-level <level> Logging level: TRACE, DEBUG, INFO,\n");
     printf("                             SUCCESS, WARNING, ERROR, CRITICAL (default: INFO)\n");
-    printf("  -s, --speed-test           Automatically determine upload/download speed\n");
     printf("  -h, --help                 Show this help message\n");
 }
