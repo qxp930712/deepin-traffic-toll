@@ -205,7 +205,3 @@ HTB 作为主要的队列规则用于流量整形：
 ## 许可证
 
 本项目为 Deepin/UOS 系统开发。
-
-## 致谢
-
-灵感来源于 [TrafficToll](https://github.com/cryzed/TrafficToll) - 一个 Python 实现的类似功能工具。

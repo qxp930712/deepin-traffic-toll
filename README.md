@@ -205,7 +205,3 @@ Process matching uses `/proc` filesystem:
 ## License
 
 This project is developed for Deepin/UOS system.
-
-## Credits
-
-Inspired by [TrafficToll](https://github.com/cryzed/TrafficToll) - a Python implementation of similar functionality.
