@@ -1,6 +1,6 @@
-#include "speedtest.hpp"
-#include "utils.hpp"
-#include "logger.hpp"
+#include "speedtest.h"
+#include "utils.h"
+#include "logger.h"
 #include <regex>
 #include <sstream>
 

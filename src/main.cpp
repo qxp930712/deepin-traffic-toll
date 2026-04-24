@@ -6,13 +6,13 @@
 #include <set>
 #include <algorithm>
 
-#include "cli.hpp"
-#include "config.hpp"
-#include "process.hpp"
-#include "tc.hpp"
-#include "speedtest.hpp"
-#include "logger.hpp"
-#include "utils.hpp"
+#include "cli.h"
+#include "config.h"
+#include "process.h"
+#include "tc.h"
+#include "speedtest.h"
+#include "logger.h"
+#include "utils.h"
 
 // 全局变量用于信号处理
 static volatile bool running = true;

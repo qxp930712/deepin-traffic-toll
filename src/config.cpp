@@ -1,6 +1,6 @@
-#include "config.hpp"
-#include "utils.hpp"
-#include "logger.hpp"
+#include "config.h"
+#include "utils.h"
+#include "logger.h"
 #include <fstream>
 #include <sstream>
 #include <regex>
