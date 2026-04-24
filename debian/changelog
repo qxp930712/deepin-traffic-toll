@@ -1,0 +1,9 @@
+deepin-traffic-toll (1.0.0-1) unstable; urgency=medium
+
+  * Initial release.
+    - Process-level bandwidth limiting via Linux TC
+    - Support for upload/download rate control
+    - YAML configuration file support
+    - Automatic process monitoring and rule management
+
+ -- Deepin Team <support@deepin.org>  Thu, 24 Apr 2026 10:00:00 +0800

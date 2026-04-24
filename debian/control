@@ -1,0 +1,27 @@
+Source: deepin-traffic-toll
+Section: net
+Priority: optional
+Maintainer: Deepin Team <support@deepin.org>
+Build-Depends: debhelper-compat (= 12),
+               cmake (>= 3.10),
+               g++ (>= 7)
+Standards-Version: 4.5.1
+Homepage: https://github.com/deepin-community/deepin-traffic-toll
+
+Package: deepin-traffic-toll
+Architecture: linux-any
+Depends: ${shlibs:Depends}, ${misc:Depends},
+         iproute2,
+         kmod
+Description: Process-level network traffic control tool
+ A C++ implementation of network traffic control tool using Linux TC
+ (Traffic Control) and HTB (Hierarchy Token Bucket) queue disciplines.
+ .
+ Features:
+  - Process-level bandwidth limiting for specific applications
+  - Traffic priority control for critical applications
+  - Flexible process matching via name, path, or command line regex
+  - Recursive process matching for Electron/Chromium apps
+  - Minimum bandwidth guarantee
+  - Optional automatic speed detection
+  - Dynamic configuration update

@@ -1,0 +1,33 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+    configure)
+        # 创建配置目录
+        if [ ! -d /etc/deepin-traffic-toll ]; then
+            mkdir -p /etc/deepin-traffic-toll
+        fi
+
+        # 加载 IFB 内核模块
+        if [ -x /sbin/modprobe ]; then
+            modprobe ifb 2>/dev/null || true
+        fi
+
+        # 添加 ifb 到 /etc/modules 以便开机自动加载
+        if [ ! -f /etc/modules-load.d/deepin-traffic-toll.conf ]; then
+            echo "ifb" > /etc/modules-load.d/deepin-traffic-toll.conf 2>/dev/null || true
+        fi
+        ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+        ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+        ;;
+esac
+
+#DEBHELPER#
+
+exit 0

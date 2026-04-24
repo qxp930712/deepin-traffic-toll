@@ -1,0 +1,28 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+    remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+        ;;
+
+    purge)
+        # 清理配置文件
+        if [ -d /etc/deepin-traffic-toll ]; then
+            rm -rf /etc/deepin-traffic-toll 2>/dev/null || true
+        fi
+
+        # 清理模块配置
+        if [ -f /etc/modules-load.d/deepin-traffic-toll.conf ]; then
+            rm -f /etc/modules-load.d/deepin-traffic-toll.conf 2>/dev/null || true
+        fi
+        ;;
+
+    *)
+        echo "postrm called with unknown argument \`$1'" >&2
+        exit 1
+        ;;
+esac
+
+#DEBHELPER#
+
+exit 0

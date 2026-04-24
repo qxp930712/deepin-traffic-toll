@@ -1,0 +1,72 @@
+.TH DEEPIN-TRAFFIC-TOLL 1 "April 2026" "deepin-traffic-toll 1.0.0" "User Commands"
+.SH NAME
+deepin-traffic-toll \- Process-level network traffic control tool
+.SH SYNOPSIS
+.B sudo deepin-traffic-toll
+\fI<interface>\fR \fI<config-file>\fR [options]
+.SH DESCRIPTION
+Deepin Traffic Toll is a C++ implementation of network traffic control tool
+using Linux TC (Traffic Control) and HTB (Hierarchy Token Bucket) queue
+disciplines to achieve fine-grained bandwidth management for specific applications.
+
+It allows you to set upload/download rate limits for different processes
+and assign traffic priorities.
+.SH ARGUMENTS
+.TP
+\fBinterface\fR
+The network interface to perform traffic shaping on (e.g., eth0, wlan0).
+.TP
+\fBconfig-file\fR
+Path to the YAML configuration file.
+.SH OPTIONS
+.TP
+\fB\-d\fR, \fB\-\-delay\fR \fIseconds\fR
+Process check interval time (default: 1.0 seconds).
+.TP
+\fB\-l\fR, \fB\-\-logging-level\fR \fIlevel\fR
+Log level: TRACE, DEBUG, INFO, SUCCESS, WARNING, ERROR, CRITICAL (default: INFO).
+.TP
+\fB\-s\fR, \fB\-\-speed-test\fR
+Automatically detect upload/download speed.
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Display help information.
+.SH REQUIREMENTS
+.TP
+.B Root privileges
+TC operations require root/sudo access.
+.TP
+.B Linux kernel with TC support
+The kernel must support Traffic Control.
+.TP
+.B IFB kernel module
+Intermediate Functional Block module is required for ingress shaping.
+.SH EXAMPLES
+.TP
+Basic usage:
+sudo deepin-traffic-toll eth0 /etc/deepin-traffic-toll/limit.yaml
+.TP
+With custom check interval:
+sudo deepin-traffic-toll wlan0 config.yaml --delay 2.0
+.TP
+With auto speed detection:
+sudo deepin-traffic-toll eth0 config.yaml --speed-test
+.SH CONFIGURATION
+The configuration file uses YAML format. See
+.I /etc/deepin-traffic-toll/example.yaml
+for a detailed example.
+.SH FILES
+.TP
+.I /usr/bin/deepin-traffic-toll
+Main executable.
+.TP
+.I /etc/deepin-traffic-toll/
+Configuration directory.
+.TP
+.I /etc/deepin-traffic-toll/example.yaml
+Example configuration file.
+.SH SEE ALSO
+.BR tc (8),
+.BR tc-htb (8)
+.SH AUTHOR
+Deepin Team <support@deepin.org>
